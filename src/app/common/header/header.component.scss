@@ -1,0 +1,15 @@
+@import "../../../assets/css/variables";
+.navbar-dark {
+  .navbar-brand {
+    color: $link-colors;
+  }
+  .navbar-nav {
+    .nav-link {
+      color: $link-colors;
+    }
+  }
+
+  .navbar-toggler-icon {
+    background-color: #000;
+  }
+}
