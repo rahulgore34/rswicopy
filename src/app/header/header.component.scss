@@ -1,0 +1,29 @@
+* {
+  box-sizing: content-box;
+}
+
+.container {
+  .navbar {
+    //add color to new job post button
+    .addcolor {
+      background-color: #4859b8;
+      color: white;
+
+      &:hover {
+        background-color: #33418a;
+      }
+    }
+    s .navbar-brand {
+      color: #4859b8;
+    }
+    .collapse {
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            color: #3f77cf;
+          }
+        }
+      }
+    }
+  }
+}
