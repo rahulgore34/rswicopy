@@ -12,4 +12,10 @@
   .navbar-toggler-icon {
     background-color: #000;
   }
+
+  .postjob-wrap {
+    display: flex;
+    flex-grow: 15;
+    justify-content: flex-end;
+  }
 }
