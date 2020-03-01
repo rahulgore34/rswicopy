@@ -1,34 +1,26 @@
-* {
-  box-sizing: content-box;
-}
+.navbar {
 
-.container {
-  .navbar {
+  //add color to new job post button
+  .addcolor {
+    background-color: #4859b8;
+    color: white;
 
-    //add color to new job post button
-    .addcolor {
-      background-color: #4859b8;
-      color: white;
-
-      &:hover {
-        background-color: #33418a;
-      }
+    &:hover {
+      background-color: #33418a;
     }
+  }
 
-    s .navbar-brand {
-      color: #4859b8;
-    }
+  .navbar-brand {
+    color: #4859b8;
+  }
 
-    .collapse {
-      .navbar-nav {
+  .nav-link {
+    color: #3f77cf;
+  }
 
-
-        .nav-item {
-          .nav-link {
-            color: #3f77cf;
-          }
-        }
-      }
-    }
+  .postjob-wrap {
+    display: flex;
+    flex-grow: 10;
+    justify-content: flex-end;
   }
 }
