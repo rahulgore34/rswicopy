@@ -9,3 +9,10 @@
 .colour {
   color: #98ccfd;
 }
+
+.card {
+  &:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 3px lightgrey !important;
+  }
+}
