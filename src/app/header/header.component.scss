@@ -1,21 +1,23 @@
+@import "../../assets/variables.scss";
+
 .navbar {
 
   //add color to new job post button
   .addcolor {
-    background-color: #4859b8;
+    background-color: $blue-txt;
     color: white;
 
     &:hover {
-      background-color: #33418a;
+      background-color: $blue-hover-text;
     }
   }
 
   .navbar-brand {
-    color: #4859b8;
+    color: $blue-txt;
   }
 
   .nav-link {
-    color: #3f77cf;
+    color: $blue-link;
   }
 
   .postjob-wrap {

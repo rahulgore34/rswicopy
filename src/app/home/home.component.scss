@@ -1,0 +1,74 @@
+@import "../../assets/variables.scss";
+
+.h1Color {
+  color: $title-txt; //h1 title text
+}
+
+.colour {
+  color: $card-color;
+}
+
+.Thickborder {
+  border-bottom: 3px solid $black-txt;
+}
+
+.border-2 {
+  border-bottom: 2px solid $light-gray-txt;
+}
+
+.card {
+  &:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 3px $light-gray-txt !important;
+  }
+}
+
+.carousel_container {
+  display: flex;
+  justify-content: center;
+}
+
+.custom_carousel {
+  // max-width: 700px !important;
+
+  h6 {
+    color: $title-txt;
+    font-weight: normal;
+  }
+
+  p {
+    color: $black-txt;
+    // color: white;
+    font-size: 20px;
+  }
+
+  .card {
+    max-width: 700px !important;
+
+  }
+}
+
+.footer-before {
+  background-color: $title-txt;
+
+  span {
+
+    color: white;
+  }
+
+  // height: 100px;
+  img {
+    max-width: 700px;
+  }
+}
+
+.section_7 {
+  a {
+    color: $blue-link;
+
+
+    &:hover {
+      color: $blue-hover-text;
+    }
+  }
+}

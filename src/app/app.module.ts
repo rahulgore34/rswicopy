@@ -2,17 +2,20 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from "./header/header.component";
-import { Page2Component } from "./page2/page2.component";
-import { Page3Component } from "./page3/page3.component";
-import { Page4Component } from './page4/page4.component';
-import { Page5Component } from './page5/page5.component';
-import { Page6Component } from './page6/page6.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { TestComponent } from './test/test.component';
+import { from } from 'rxjs';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, Page2Component, Page3Component, Page4Component, Page5Component, Page6Component],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, TestComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, CarouselModule.forRoot(), ModalModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

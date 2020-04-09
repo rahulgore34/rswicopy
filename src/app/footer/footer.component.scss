@@ -1,0 +1,39 @@
+@import '../../assets/variables.scss';
+
+.footer-css {
+  width: 100%;
+  // position: fixed;
+  bottom: 0px;
+  background-color: #EDEDF7;
+
+  a {
+    color: $blue-link;
+    padding: 7px;
+
+    &:hover {
+      color: $blue-hover-text;
+    }
+  }
+
+  h4 {
+    color: #7F7D70;
+    font-weight: normal;
+  }
+
+  .colour {
+    color: $card-color;
+  }
+
+  p {
+    span {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+
+  i {
+    cursor: pointer;
+    font-size: 25px;
+    color: #0288D1;
+  }
+}
