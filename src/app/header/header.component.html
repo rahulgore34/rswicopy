@@ -33,12 +33,117 @@
 
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+    <h4 class="modal-title pull-left">POST JOB HERE</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    This is a modal.
+
+    <form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="Company name">Company Name</label>
+            <input type="text" class="form-control" id="companyName" required maxlength="25" [(ngModel)]="companyName"
+              name="companyName" #pickedName="ngModel">
+
+            <div *ngIf="!pickedName.valid && pickedName.touched" class="text-danger">
+              Company name is required!
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="JOB tile">Job Tiltle</label>
+            <input type="text" class="form-control" required [(ngModel)]="jobTitle" name="jobTitle" #userJob="ngModel">
+
+            <div *ngIf="!userJob.valid && userJob.touched" class="text-danger">
+              Job title is required!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <div> <label for=" opening">State</label></div>
+            <div>
+              <select id="states" #s (change)="selected(s.value)" required [(ngModel)]="state" name="state"
+                #userstate="ngModel">
+                <option *ngFor="let s of states" [value]="s.name">{{s.name}}</option>
+              </select>
+              <div *ngIf="!userstate.valid && userstate.touched" class="text-danger">
+                State is required!
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <div> <label for="salary">Salary</label></div>
+            <div>
+              <select id="salary" required [(ngModel)]="salary" name="salary" #usersalary="ngModel">
+                <option *ngFor="let s of salaryArr" [value]="s">{{s}}</option>
+              </select>
+
+              <div *ngIf="!usersalary.valid && usersalary.touched" class="text-danger">
+                Salary is required!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <div> <label for=" city">City</label></div>
+            <div>
+              <select id="cities" required [(ngModel)]="city" name="city" #userCity="ngModel">
+                <option *ngFor="let c of cities" [value]="c.name">{{c.name}}</option>
+              </select>
+              <div *ngIf="!userCity.valid && userCity.touched" class="text-danger">
+                City is required!
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="opening">No of openings</label>
+            <input type="number" class="form-control" placeholder="Enter no of openings" id="noofopeing"
+              [(ngModel)]="NoOfOpening" name="NoOfOpening" #noofopening="ngModel">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="email">Email id</label>
+            <input type="email" class="form-control" placeholder="Enter email" id="email" required email
+              [(ngModel)]="newUserForm.email" name="email" #userEmail="ngModel">
+            <div *ngIf="!userEmail.valid && userEmail.touched" class="text-danger">
+              Email is required!
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="contact">Contact No</label>
+            <input type="input" class="form-control" required [(ngModel)]="contact" name="contact"
+              #userContact="ngModel" maxlength="10" minlength="10">
+            <div *ngIf="!userContact.valid && userContact.touched" class="text-danger">
+              Contact is required!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary center px-5" [disabled]="!newUserForm.form.valid">POST</button>
+      </div>
+    </form>
+
   </div>
 </ng-template>

@@ -10,12 +10,18 @@ import { TestComponent } from './test/test.component';
 import { from } from 'rxjs';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JobdataService } from './shared/jobdata.service';
+// import { BootstrapAlertModule } from 'ngx-bootstrap-alert';
 
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, TestComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, CarouselModule.forRoot(), ModalModule.forRoot()],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, CarouselModule.forRoot(), ModalModule.forRoot(), BsDropdownModule.forRoot(), BrowserAnimationsModule, ReactiveFormsModule
+  ],
+  providers: [JobdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
