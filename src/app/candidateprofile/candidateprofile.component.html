@@ -1,0 +1,111 @@
+<div class="text-center mt-2">
+  <button id="btn1" (click)="logout()" class="btn btn-primary  m-1 px-5" routerLink="/login">log out</button>
+  <button class="btn btn-primary  m-1 px-5" routerLink="/getjob">Get Job</button>
+</div>
+<div class="d-flex justify-content-center mt-5">
+  <form #newForm="ngForm" (ngSubmit)="onSubmitUser(newForm)">
+    <div class="d-flex justify-content-between">
+      <div class="form-group text-left m-2">
+        <label for="first name">First name</label>
+        <input type="first name" class="form-control" required [(ngModel)]="firstName" name="firstName"
+          #fname="ngModel">
+        <div *ngIf="!fname.valid && fname.touched" class="text-danger">
+          First Name is required!
+        </div>
+      </div>
+      <div class="form-group text-left m-2">
+        <label for="last name">Last name</label>
+        <input type="last name" class="form-control" required [(ngModel)]="lastName" name="lastName" #lname="ngModel">
+        <div *ngIf="!lname.valid && lname.touched" class="text-danger">
+          Last Name is required!
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <div class="form-group text-left m-2">
+        <div> <label for=" opening">State</label></div>
+        <div class="custSelect">
+          <select (change)="selected(s.value)" required [(ngModel)]="state" name="state" #userstate="ngModel">
+            <option class="menu" *ngFor="let s of states" [ngValue]="s.name">{{s.name}}</option>
+          </select>
+          <div *ngIf="!userstate.valid && userstate.touched" class="text-danger">
+            State is required!
+          </div>
+        </div>
+      </div>
+      <div class="form-group text-left m-2">
+        <div> <label for=" city">City</label></div>
+        <div>
+          <select required [(ngModel)]="selectedCity" name="selectedCity" #userCity="ngModel">
+            <option class="menu" *ngFor="let c of cities" [ngValue]="c.name">{{c.name}}</option>
+          </select>
+          <div *ngIf="!userCity.valid && userCity.touched" class="text-danger">
+            City is required!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="form-group text-left m-2">
+        <label for="email">Email id</label>
+        <input type="email" class="form-control" required email [(ngModel)]="email" name="email" #userEmail="ngModel">
+        <div *ngIf="!userEmail.valid && userEmail.touched" class="text-danger">
+          Email is required!
+        </div>
+      </div>
+      <div class="form-group text-left m-2">
+        <label for="contact">Contact No</label>
+        <input type="input" class="form-control" required [(ngModel)]="contact" name="contact" #userContact="ngModel"
+          maxlength="10" minlength="10">
+        <div *ngIf="!userContact.valid && userContact.touched" class="text-danger">
+          Contact is required!
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="form-group text-left m-2">
+        <label for="qulification">Qualification</label>
+        <div class="custSelect">
+          <select required [(ngModel)]="qulification" name="qulification" #Qualification="ngModel">
+            <!-- <option>{{qulification1}}</option> -->
+            <option value="" [disabled]="true">Select quantity</option>
+            <option class="menu" *ngFor="let q of qulifications" [ngValue]="q">{{q}}</option>
+          </select>
+          <div *ngIf="!Qualification.valid && Qualification.touched" class="text-danger">
+            Qualification is required!
+          </div>
+        </div>
+      </div>
+      <div class="form-group text-left m-2">
+        <label for="Resume">Attached Resume</label>
+        <input type="file" class="form-control" [(ngModel)]="resume" name="resume" #Resume="ngModel"
+          (change)="checkResume($event.target.files)">
+        <div *ngIf="!Resume.valid && Resume.touched" class="text-danger">
+          Resume is required!
+        </div>
+        <div *ngIf="check">
+          Resume must be in txt or pdf file.
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <div class="form-group text-left">
+        <label for="contact">Experience</label>
+        <input type="number" class="form-control" required [(ngModel)]="exp" name="exp" #userExp="ngModel">
+        <div *ngIf="!userExp.valid && userExp.touched" class="text-danger">
+          Experience is required!
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary center px-5" [disabled]="!newForm.form.valid">Save</button>
+    </div>
+  </form>
+  <div *ngIf="val">
+    <alert type="success">
+      <strong>Well done!</strong> Data is successfully saved.
+    </alert>
+  </div>
+</div>

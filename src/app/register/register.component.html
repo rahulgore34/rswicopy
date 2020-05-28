@@ -1,0 +1,183 @@
+<div class=" d-flex justify-content-center">
+  <tabset type="pills" class="text-center p-2 mb-2">
+    <tab heading="Employer">
+      <form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
+        <div class="d-flex justify-content-between">
+          <div class="form-group m-2 text-left">
+            <label for="Company name">Company Name</label>
+            <input type="text" class="form-control" required maxlength="25" [(ngModel)]="companyName" name="companyName"
+              #pickedName="ngModel">
+            <div *ngIf="!pickedName.valid && pickedName.touched" class="text-danger">
+              Company name is required!
+            </div>
+          </div>
+
+          <div class="form-group text-left m-2">
+            <label for="Company name">Company Head Office</label>
+            <input type="text" class="form-control" [(ngModel)]="companyHeadOffice" name="companyHeadOffice">
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="form-group text-left m-2">
+            <div> <label for=" opening">State</label></div>
+            <div class="custSelect">
+              <select #s (change)="selected(s.value)" required [(ngModel)]="state" name="state" #userstate="ngModel">
+                <option class="menu" *ngFor="let s of states" [value]="s.name">{{s.name}}</option>
+              </select>
+              <div *ngIf="!userstate.valid && userstate.touched" class="text-danger">
+                State is required!
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-left m-2">
+            <div> <label for=" city">City</label></div>
+            <div>
+              <select required [(ngModel)]="city" name="city" #userCity="ngModel">
+                <option *ngFor="let c of cities" [value]="c.name">{{c.name}}</option>
+              </select>
+              <div *ngIf="!userCity.valid && userCity.touched" class="text-danger">
+                City is required!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="form-group text-left m-2">
+            <label for="email">Email id</label>
+            <input type="email" class="form-control" required email [(ngModel)]="newUserForm.email" name="email"
+              #userEmail="ngModel">
+            <div *ngIf="!userEmail.valid && userEmail.touched" class="text-danger">
+              Email is required!
+            </div>
+          </div>
+          <div class="form-group text-left m-2">
+            <label for="contact">Contact No</label>
+            <input type="input" class="form-control" required [(ngModel)]="contact" name="contact"
+              #userContact="ngModel" maxlength="10" minlength="10">
+            <div *ngIf="!userContact.valid && userContact.touched" class="text-danger">
+              Contact is required!
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="form-group text-left m-2">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" required [(ngModel)]="password" name="password"
+              #userPassword="ngModel" maxlength="10" minlength="8">
+            <div *ngIf="!userPassword.valid && userPassword.touched" class="text-danger">
+              Password is required!
+            </div>
+          </div>
+          <div class="form-group text-left m-2">
+            <label for="cPassword">Confirm Password</label>
+            <input type="password" class="form-control" required [(ngModel)]="conPassword" name="conPassword"
+              #userConPassword="ngModel" maxlength="10" minlength="8" (keyup)="check(conPassword,password)">
+            <div *ngIf="!userConPassword.valid && userConPassword.touched" class="text-danger">
+              Confirm Password is required!
+            </div>
+            <div *ngIf=flag class="text-danger">
+              Confirm Password must match with password.
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary center px-5"
+            [disabled]="!newUserForm.form.valid">Register</button>
+        </div>
+      </form>
+
+
+    </tab>
+    <tab heading="Candidate">
+      <form #newForm="ngForm" (ngSubmit)="onSubmitUser(newForm)">
+        <div class="d-flex justify-content-between">
+          <div class="form-group text-left m-2">
+            <label for="first name">First name</label>
+            <input type="first name" class="form-control" required [(ngModel)]="firstName" name="firstName"
+              #fname="ngModel">
+            <div *ngIf="!fname.valid && fname.touched" class="text-danger">
+              First Name is required!
+            </div>
+          </div>
+          <div class="form-group text-left m-2">
+            <label for="last name">Last name</label>
+            <input type="last name" class="form-control" required [(ngModel)]="lastName" name="lastName"
+              #lname="ngModel">
+            <div *ngIf="!lname.valid && lname.touched" class="text-danger">
+              First Name is required!
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <div class="form-group text-left m-2">
+            <div> <label for=" opening">State</label></div>
+            <div class="custSelect">
+              <select #s (change)="selected(s.value)" required [(ngModel)]="state" name="state" #userstate="ngModel">
+                <option class="menu" *ngFor="let s of states" [value]="s.name">{{s.name}}</option>
+              </select>
+              <div *ngIf="!userstate.valid && userstate.touched" class="text-danger">
+                State is required!
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-left m-2">
+            <div> <label for=" city">City</label></div>
+            <div>
+              <select required [(ngModel)]="city" name="city" #userCity="ngModel">
+                <option *ngFor="let c of cities" [ngValue]="c.name">{{c.name}}</option>
+              </select>
+              <div *ngIf="!userCity.valid && userCity.touched" class="text-danger">
+                City is required!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="form-group text-left m-2">
+            <label for="email">Email id</label>
+            <input type="email" class="form-control" required email [(ngModel)]="newUserForm.email" name="email"
+              #userEmail="ngModel">
+            <div *ngIf="!userEmail.valid && userEmail.touched" class="text-danger">
+              Email is required!
+            </div>
+          </div>
+          <div class="form-group text-left m-2">
+            <label for="contact">Contact No</label>
+            <input type="input" class="form-control" required [(ngModel)]="contact" name="contact"
+              #userContact="ngModel" maxlength="10" minlength="10">
+            <div *ngIf="!userContact.valid && userContact.touched" class="text-danger">
+              Contact is required!
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="form-group text-left m-2">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" required [(ngModel)]="password" name="password"
+              #userPassword="ngModel" maxlength="10" minlength="8">
+            <div *ngIf="!userPassword.valid && userPassword.touched" class="text-danger">
+              Password is required!
+            </div>
+          </div>
+          <div class="form-group text-left m-2">
+            <label for="cPassword">Confirm Password</label>
+            <input type="password" class="form-control" required [(ngModel)]="conPassword" name="conPassword"
+              #userConPassword="ngModel" maxlength="10" minlength="8" (keyup)="check(conPassword,password)">
+            <div *ngIf="!userConPassword.valid && userConPassword.touched" class="text-danger">
+              Confirm Password is required!
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary center px-5" [disabled]="!newForm.form.valid">Register</button>
+        </div>
+      </form>
+    </tab>
+  </tabset>
+  <div *ngIf="val">
+    <alert type="success">
+      <strong>Well done!</strong> Data is successfully saved.
+    </alert>
+  </div>
+</div>

@@ -3,6 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TestComponent } from './test/test.component';
 import { from } from 'rxjs';
+import { GetjobComponent } from './getjob/getjob.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { CandidateprofileComponent } from './candidateprofile/candidateprofile.component';
+import { EmployerprofileComponent } from './employerprofile/employerprofile.component';
+import { PostnewjobComponent } from './postnewjob/postnewjob.component';
+import { HirenowComponent } from './hirenow/hirenow.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -14,6 +22,30 @@ const routes: Routes = [
   },
   {
     path: "test", component: TestComponent
+  },
+  {
+    path: "getjob", component: GetjobComponent
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'register', component: RegisterComponent
+  },
+  {
+    path: 'candidateProfile/:email', component: CandidateprofileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'employerProfile/:email', component: EmployerprofileComponent,
+    canActivate: [AuthGuard]
+
+  },
+  {
+    path: 'postnewjob', component: PostnewjobComponent
+  },
+  {
+    path: 'hirenow', component: HirenowComponent
   }
 ];
 

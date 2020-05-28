@@ -1,0 +1,34 @@
+<div class="text-center mt-2">
+  <button id="btn1" (click)="logout()" class="btn btn-primary  m-1 px-5" routerLink="/login">log out</button>
+  <button class="btn btn-primary  m-1 px-5" routerLink="/employerProfile/:email">Update Profile</button>
+  <button class="btn btn-primary m-1 px-5" routerLink="/postnewjob">Post New Job</button>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Qualification
+          <input type="text" name="quli" [(ngModel)]="quli" (keyup)="checkquli($event)">
+        </th>
+        <th>Experirnce</th>
+        <th>Email</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of candidate ;let i=index">
+        <td>{{i}}</td>
+        <td>{{c.firstName}}</td>
+        <td>{{c.details? c.details['Qulification']: '-'}}</td>
+        <td>{{c.details? c.details['experience']: '-'}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.mobile}}</td>
+        <td><button class="btn btn-primary" (click)="send(c.email)">Hire</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

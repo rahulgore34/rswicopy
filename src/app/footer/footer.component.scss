@@ -2,20 +2,22 @@
 
 .footer-css {
   width: 100%;
-  // position: fixed;
+  position: fixed;
   bottom: 0px;
+  margin: 0px;
   background-color: #EDEDF7;
 
   a {
     color: $blue-link;
-    padding: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
 
     &:hover {
       color: $blue-hover-text;
     }
   }
 
-  h4 {
+  h5 {
     color: #7F7D70;
     font-weight: normal;
   }
@@ -33,7 +35,7 @@
 
   i {
     cursor: pointer;
-    font-size: 25px;
+    font-size: 22px;
     color: #0288D1;
   }
 }

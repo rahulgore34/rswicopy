@@ -1,4 +1,5 @@
 <!-- section-1 -->
+
 <div class="mt-5 container-md">
 
   <h1 class="h1Color text-center">WorkIndia</h1>
@@ -11,8 +12,9 @@
           <p class="card-text">Hire staff with ease</p>
         </div>
         <div class="card-footer bg-white border-0">
-          <a href="#" class="btn btn-primary mw-25 d-flex justify-content-center d-md-table mx-auto btn-sm">Hire
-            now</a>
+          <button (click)="getJob()"
+            class="btn btn-primary mw-25 d-flex justify-content-center d-md-table mx-auto btn-sm">Hire
+            now</button>
         </div>
       </div>
     </div>
@@ -23,8 +25,9 @@
           <p class="card-text">1,09,000 job openings all over India</p>
         </div>
         <div class="card-footer border-0 bg-white">
-          <a href="#" class="btn btn-primary mw-25 d-flex justify-content-center d-md-table mx-auto btn-sm">Get job
-            now</a>
+          <button class="btn btn-primary mw-25 d-flex justify-content-center d-md-table mx-auto btn-sm"
+            (click)="getJob()">Get job
+            now</button>
         </div>
       </div>
     </div>
@@ -68,7 +71,7 @@
 <div class="container mt-5 mb-5 pb-3 border-2">
   <h3 class="text-center">- How <span class="Thickborder pb-1 pr-1 pl-2"> We </span> Work -</h3>
 
-  <div class="row mt-5">
+  <div class="row mt-5 ">
     <div class="col-md-3 p-2 col-12">
       <div class="card shadow bg-white m-3 pb-5 mh-100">
         <img class="card-img-top w-50 mx-auto pt-2" src="../../assets/images/step1.png" alt="Card image">
@@ -247,46 +250,5 @@
         </div>
       </slide>
     </carousel>
-  </div>
-</div>
-<!-- section-6 -->
-
-<div class=" mt-5 pt-3 mb-5 pb-3  footer-before">
-  <div class=" container ">
-    <span>50K+ HAPPY
-      COMPANIES
-    </span>
-    <span>
-      <img src="../../assets/images/companies-desktop.png"></span>
-  </div>
-</div>
-
-<!-- section-7 -->
-<div class="container mt-5 mb-5 pb-3">
-  <div class="row section_7">
-    <div class="col-4">
-      <p>Find Jobs By City</p>
-      <p><a href="#">Mumbai</a></p>
-      <p><a href="#">Pune</a></p>
-      <p><a href="#">Bangalore</a></p>
-      <p><a href="#">Delhi/NCR</a></p>
-      <p><a href="#">Ahmedabad</a></p>
-      <p><a href="#">Surat</a></p>
-      <p><a href="#">Nagpur</a></p>
-      <p><a href="#">Mumbai</a></p>
-      <p><a href="#">Nashik</a></p>
-    </div>
-    <div class="col-4">
-      <p>Find Jobs By Qualification</p>
-      <p><a href="#">Graduate</a></p>
-      <p><a href="#">12th Pass</a></p>
-      <p><a href="#">10th Pass</a></p>
-      <p><a href="#">Below 10th Pass</a></p>
-    </div>
-    <div class="col-4">
-      <p>Find Jobs By Experience Level</p>
-      <p><a href="#">Fresher</a></p>
-      <p><a href="#">Experience</a></p>
-    </div>
   </div>
 </div>

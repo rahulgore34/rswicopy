@@ -1,0 +1,46 @@
+<div class="text-center mt-2">
+  <button id="btn1" (click)="logout()" class="btn btn-primary  m-1 px-5" routerLink="/login">log out</button>
+  <button id="btn1" (click)="logout()" class="btn btn-primary  m-1 px-5" routerLink="/login">log out</button>
+  <button class="btn btn-primary  m-1 px-5" routerLink="/candidateProfile/:email">Update profile</button>
+</div>
+<div class="wrapper">
+  <div class="menu shadow bg-white text-center">
+    <div>
+      <h4 class="text-center ">Search reasults</h4>
+    </div>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Company Name
+              <input type="text" name="searchName" [(ngModel)]="searchName" (keyup)="checkCompanyName($event)">
+            </th>
+            <th>Job Title
+              <input type="text" name="searchJobTitle" [(ngModel)]="searchJobTitle" (keyup)="checkJobTitle($event)">
+            </th>
+            <th>No Of Openings</th>
+            <th> City
+              <input type="text" name="searchCity" [(ngModel)]="searchCity" (keyup)="checkCity($event)">
+            </th>
+            <th>Salary</th>
+            <th>Email</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let j of job; let i = index">
+            <td>{{i}}</td>
+            <td>{{j.companyName}}</td>
+            <td>{{j.jobTitle}}</td>
+            <td>{{j.NoOfOpenings}}</td>
+            <td>{{j.city}}</td>
+            <td>{{j.salary}}</td>
+            <td>{{j.email}}</td>
+            <td>{{j.contact}}</td>
+            <td><button class="btn btn-primary" (click)="send(j.email)">Apply</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>

@@ -1,0 +1,28 @@
+.modal-content {
+  width: 550px !important;
+
+}
+
+
+select {
+  width: 243px !important;
+  border-radius: 3px;
+  padding: 5px;
+
+}
+
+input {
+  width: 243px !important;
+}
+
+.postjob-wrap {
+  display: flex;
+  flex-grow: 10;
+  justify-content: flex-end;
+}
+
+#btn1 {
+  position: fixed;
+  top: 0;
+  right: 0;
+}

@@ -9,11 +9,13 @@ export class JobdataService {
 
   setJobDetails(jobdetailsobj: any) {
     this.jobs.push(jobdetailsobj);
-
-
   }
 
   getJobDetails() {
     return this.jobs;
+  }
+
+  isLoggedIn() {
+    return !!localStorage.getItem('userDetails');
   }
 }

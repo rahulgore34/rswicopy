@@ -1,0 +1,30 @@
+<div class=" d-flex m-5 justify-content-center flex-column">
+  <div class="d-flex justify-content-center">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Email id:</label>
+        <input type="email" class="form-control " placeholder="Enter email" id="email" formControlName="useremail">
+        <span class="text-danger"
+          *ngIf="(loginFormControl.useremail.touched || submitted) && loginFormControl.useremail.errors?.required">
+          User email is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" id="pwd" formControlName="password">
+        <span class="text-danger"
+          *ngIf="(loginFormControl.password.touched || submitted) && loginFormControl.password.errors?.required">
+          Password is required
+        </span>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-5">Sign in</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="flag" class="d-flex justify-content-center text-danger">Invalid username or password</div>
+
+  <div class="d-flex justify-content-center">
+    New User ?<a routerLink="/register">Register here</a>
+  </div>
+</div>
